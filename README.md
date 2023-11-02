@@ -54,10 +54,6 @@ Additionally, the app is made to function as a standard blog website. It seeks t
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- LIVE DEMO -->
-## 🚀 Live Demo <a name="live-demo"></a>
-
-The Live Demo of this Project will be available soo.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
