@@ -128,6 +128,8 @@ Example command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 > Here are some future features that could be added to the Blog app in the future.
+- Integration with other social media platforms: This would allow bloggers to easily share their content on other platforms, such as Twitter, Facebook, and LinkedIn.
+- Support for multiple languages: This would make the Blog app accessible to a wider audience.
 
 
 
