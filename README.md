@@ -49,7 +49,10 @@ Additionally, the app is made to function as a standard blog website. It seeks t
 
 > The key features of this project includes.
 
-- **create modles*
+- **create Modles**
+- **Display Posts**
+- **Display Likes on Posts**
+- **Display Comments on Posts**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -126,9 +129,7 @@ Example command:
 
 > Here are some future features that could be added to the Blog app in the future.
 
-- **Display Posts**
-- **Display Likes on Posts**
-- **Display Comments on Posts**
+
 
 These are just a few ideas for future features that could be added to the Blog app. The specific features that are added will depend on the needs and wants of the users.
 
