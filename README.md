@@ -49,7 +49,10 @@ Additionally, the app is made to function as a standard blog website. It seeks t
 
 > The key features of this project includes.
 
-- **create modles*
+- **create Modles**
+- **Display Posts**
+- **Display Likes on Posts**
+- **Display Comments on Posts**
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -125,10 +128,10 @@ Example command:
 ## 🔭 Future Features <a name="future-features"></a>
 
 > Here are some future features that could be added to the Blog app in the future.
+- Integration with other social media platforms: This would allow bloggers to easily share their content on other platforms, such as Twitter, Facebook, and LinkedIn.
+- Support for multiple languages: This would make the Blog app accessible to a wider audience.
 
-- **Display Posts**
-- **Display Likes on Posts**
-- **Display Comments on Posts**
+
 
 These are just a few ideas for future features that could be added to the Blog app. The specific features that are added will depend on the needs and wants of the users.
 
