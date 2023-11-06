@@ -105,8 +105,10 @@ Example command:
 
 ### Run tests
 
-- Tests are not available yet, please stay tuned for it.
-
+- Tests run execute the following command:
+```sh
+  rspec 
+```
 ### Deployment
 
 - Deployment is not applicable in this project at the moment.
