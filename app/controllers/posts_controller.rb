@@ -1,8 +1,10 @@
 class PostsController < ApplicationController
   layout 'standard'
+
   def index
     @user = User.find(params[:user_id])
     @posts = Post.where(author_id: params[:user_id]).order(id: :asc)
+
     if @posts.any?
       @posts = @posts.paginate(page: params[:page], per_page: 2)
     else
