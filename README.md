@@ -53,6 +53,7 @@ Additionally, the app is made to function as a standard blog website. It seeks t
 - **Display Posts**
 - **Display Likes on Posts**
 - **Display Comments on Posts**
+- **Create views** 
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
