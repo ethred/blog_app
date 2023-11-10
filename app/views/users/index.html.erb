@@ -1,7 +1,25 @@
-<% @users.each do |user| %>
-  <li>
-    <%= link_to user_url(user), id: "user-container" do %>
-      <%= render partial: "users/user_info", locals: { user: user } %>
-    <% end %>
-  </li>
+<% if @users.blank? %>
+  <p>There are no users currently in the system.</p>
+<% else %>
+  <% @users.each do |user| %>
+    <div >
+
+      <!-- User Profile -->
+
+        <div class="main" >
+          <div class="main-1" >
+            <img src="<%= user.photo %>" class="img-fluid img-thumbnail rounded-start" alt="<%= user.name %>">
+          </div>
+          <div class="main-2">
+            <%= link_to user_path(user), class: 'no-link' do %>
+              <div class="card-body">
+                <h5 class="card-title"><%= user.name %></h5>
+                <p class="card-text text-end">Number of posts: <%= user.posts_counter || 0 %></p>
+              </div>
+            <% end %>
+          </div>
+        </div>
+
+    </div>
+  <% end %>
 <% end %>
