@@ -1,15 +1,22 @@
 class CommentsController < ApplicationController
   def new
+    # @user = current_user
+    # @post = Post.find(params[:post_id])
+    # @comment = Comment.new
+
     @user = current_user
-    @post = Post.find(params[:post_id])
+    @post = Post.includes(:author).find(params[:post_id])
     @comment = Comment.new
   end
 
   def create
-    @post = Post.find(params[:post_id])
+    # @post = Post.find(params[:post_id])
+    # @comment = @post.comments.build(comment_params)
+    # @comment.user = current_user
+
+    @post = Post.includes(:author).find(params[:post_id])
     @comment = @post.comments.build(comment_params)
     @comment.user = current_user
-
     @user = @post.author
 
     if @comment.save

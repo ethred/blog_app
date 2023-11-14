@@ -1,3 +1,4 @@
+
 <div class="sub-container" >
 
   <!-- User Profile -->
@@ -58,5 +59,9 @@
   <% else %>
     <p style="color:blue">There are currently no posts for this user in the system.</p>
   <% end %>
-
+    <!-- Use will_paginate with default styling -->
+  <div class="flex justify-center mt-5">
+    <%= will_paginate @posts %>
+  </div>
+</div>
 </div>

@@ -48,6 +48,27 @@ body {
 .button-link:hover {
   background-color: #0056b3;
 }
+.post-header{
+    display: flex;
+    background: #0082ff;
+}
+.show-top
+{
+    display: flex;
+    width: 98%;
+    justify-content: space-between;
+}
+
+.flex{
+  display: flex;
+  padding-top: 10px;
+  gap: 10px;
+  justify-content: center;
+}
+.content-detail{
+  text-align: center;
+  line-height: 10px;
+}
 
 li {
   list-style-type: none;
