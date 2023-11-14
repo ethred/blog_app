@@ -45,7 +45,7 @@ RSpec.describe 'Post index ' do
   end
 
   it 'can see pagination if there are more posts than fit on the view' do
-    expect(page).to have_selector('nav.pagination')
+    expect(page).to have_selector('#custom-pagination-container')
   end
 
   it "When I click on a post, it redirects me to that post's show page." do
