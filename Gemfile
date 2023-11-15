@@ -51,6 +51,7 @@ group :development, :test do
   gem 'counter_culture', '~> 2.9'
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
+  gem 'letter_opener'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
@@ -72,5 +73,8 @@ group :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
-gem 'rubocop', '>= 1.0', '< 2.0'
 gem 'devise', '~> 4.8'
+gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'warden'
+# gem 'cancancan', '~> 3.5'

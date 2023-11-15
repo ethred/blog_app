@@ -60,19 +60,23 @@ Rails.application.configure do
 
   # Suppress logger output for asset requests.
   config.assets.quiet = true
+
+  # Set the default URL options for the Devise mailer
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
   # Devise initializer
-  Devise.setup do |config|
+  Devise.setup do |devise_config|
     # Other Devise configuration...
 
-    # Make sure the following line is present:
-    config.warden do |manager|
-      manager.intercept_401 = false
-      manager.default_strategies(scope: :user).unshift :some_external_strategy
-    end
+    # Use letter_opener for development emails
+    devise_config.mailer = "Devise::Mailer"
+    devise_config.parent_mailer = "ActionMailer::Base"
+    devise_config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
   end
 
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
+
+  # Use letter_opener for all emails in development
+  config.action_mailer.delivery_method = :letter_opener
 end
