@@ -1,12 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Posts</title>
-  </head>
-  <body>
-    <h1>selected post with for a designated user.</h1>
-  </body>
-</html>
+<div class="post-container w-[60%] mx-auto bg-white rounded-md shadow-md p-6 my-8">
+    <div class="post-header flex justify-between items-center mb-4">
+        <div class="show-top">
+            <h1 class="font-semibold text-2xl mb-2"><%= @post.title %> By <span><%= @post.author.name %></span></h1>
+            <ul class="flex space-x-4 text-sm">
+                <li class="font-semibold">Comments: <%= @post.comments_counter %> </li>
+                <li class="font-semibold">Likes: <%= @post.likes_counter %> </li>
+            </ul>
+        </div>
+    </div>
+<div class="content-detail">
+    <div class="post-body bg-gray-200 border-2 rounded-md hover:bg-gray-300 transition duration-300 ease-in-out">
+        <%=@post.text%>
+    </div>
+
+    <h4 class="comment-title font-semibold text-lg mb-2">Comments: <%=@count%></h4>
+
+    <div class="comment-container border-2 rounded-md p-4">
+        <% @post.comments.each do |comment| %>
+            <div class="mb-2">
+                <span class="font-semibold"><%= comment.user.name %>:</span>
+                <span class="font-normal"><%= comment.text %></span>
+            </div>
+        <% end %>
+    </div>
+
+    <div class="like-comment-container flex justify-between mt-4">
+        <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |l| %>
+            <%= l.submit "Like", class: "button-link"%>
+        <% end %>
+
+        <%= link_to "Add a comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), class: 'button-link'%>
+    </div>
+</div>
+</div>

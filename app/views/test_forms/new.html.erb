@@ -1,0 +1,14 @@
+<h1>Create a New Test Form</h1>
+
+<%= form_with(model: @test_form, url: test_forms_path, local: true, data: { turbo_frame: 'test-form-frame' }) do |form| %>
+  <div>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %><br>
+
+    <%= form.submit "Create Test Form" %>
+  </div>
+<% end %>
+
+<div id="test-form-frame">
+  <!-- This is the Turbo Frame where the response will be rendered -->
+</div>

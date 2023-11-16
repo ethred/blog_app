@@ -110,9 +110,6 @@ Example command:
 ```sh
   rspec 
 ```
-### Deployment
-
-- Deployment is not applicable in this project at the moment.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

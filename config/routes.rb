@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  devise_for :users, controllers: { registrations: 'registrations', passwords: 'passwords',  sessions: 'sessions' }
+  
   root "users#index"
-  resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show]
+  # root "devise/registrations#new"
+  resources :users do
+    resources :posts do
+      resources :comments
+      resources :likes
+    end
   end
 end
-

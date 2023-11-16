@@ -2,6 +2,8 @@ class Post < ApplicationRecord
   belongs_to :author, class_name: 'User'
   has_many :comments
   has_many :likes
+  attribute :likes_counter, :integer, default: 0
+  attribute :comments_counter, :integer, default: 0
 
   # Validations
   validates :title, presence: true, length: { maximum: 250 }
@@ -13,7 +15,8 @@ class Post < ApplicationRecord
 
   # Methods
   def update_user_posts_counter
-    author.increment!(:posts_counter)
+    # author.increment!(:posts_counter)
+    author.update(posts_counter: Post.where(author:).count)
   end
 
   def recent_comments

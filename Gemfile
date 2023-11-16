@@ -40,14 +40,18 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', require: false
+gem 'bootstrap-will_paginate', '~> 1.0'
+gem 'will_paginate', '~> 3.3.0'
 
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
+  gem 'counter_culture', '~> 2.9'
   gem 'debug', platforms: %i[mri windows]
   gem 'factory_bot_rails'
+  gem 'letter_opener'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
 end
@@ -69,4 +73,8 @@ group :test do
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
 end
+gem 'devise', '~> 4.8'
 gem 'rubocop', '>= 1.0', '< 2.0'
+
+gem 'warden'
+# gem 'cancancan', '~> 3.5'
