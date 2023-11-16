@@ -31,11 +31,13 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :text)
   end
 
-  private
-
-  def authorize_delete
-    @post = Post.find(params[:id])
-    @user = @post.author  # Set @user to the author of the post
-    authorize! :destroy, @post
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find(params[:id])
+    if @post.destroy
+      redirect_to user_posts_path(@user), notice: 'Post was successfully deleted.'
+    else
+      redirect_to user_post_path(@user, @post), alert: 'Failed to delete post.'
+    end
   end
 end
