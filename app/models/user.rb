@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  before_validation :set_default_role
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :confirmable, :database_authenticatable, :registerable,
@@ -15,5 +16,9 @@ class User < ApplicationRecord
   # Methods
   def recent_posts
     posts.order(created_at: :desc).limit(3)
+  end
+
+  def set_default_role
+    self.role ||= 'admin'
   end
 end

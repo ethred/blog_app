@@ -1,3 +1,4 @@
+<h1>Redwan</h1>
 <div class="post-container w-[60%] mx-auto bg-white rounded-md shadow-md p-6 my-8">
     <div class="post-header flex justify-between items-center mb-4">
         <div class="show-top">
@@ -21,15 +22,20 @@
                 <span class="font-semibold"><%= comment.user.name %>:</span>
                 <span class="font-normal"><%= comment.text %></span>
             </div>
+             <% if can? :destroy, comment %>
+            <%= link_to "Delete comments", user_post_comment_path(comment.user, @post, comment), method: :delete, data: { confirm: "Are you sure?" }, class: "button-link" %>
+            <% end %>
         <% end %>
     </div>
-
+   
     <div class="like-comment-container flex justify-between mt-4">
-        <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |l| %>
-            <%= l.submit "Like", class: "button-link"%>
+        <%= form_with(model: @like, url: user_post_likes_path(post_id: @post.id)) do |l| %>
+            <%= l.submit "Like", class: "button-link" %>
         <% end %>
-
-        <%= link_to "Add a comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), class: 'button-link'%>
+     <%= link_to "Add a comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), class: 'button-link' %>
+      <% if can? :destroy, @post %>
+         <%= link_to "Delete", user_post_path(user_id: @user.id, id: @post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %>
+        <% end %>
     </div>
 </div>
 </div>

@@ -77,4 +77,5 @@ gem 'devise', '~> 4.8'
 gem 'rubocop', '>= 1.0', '< 2.0'
 
 gem 'warden'
-# gem 'cancancan', '~> 3.5'
+gem 'cancancan'
+
