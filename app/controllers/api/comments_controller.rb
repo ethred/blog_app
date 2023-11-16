@@ -7,6 +7,7 @@ class Api::CommentsController < ApplicationController
     @comments = Comment.all
     render json: @comments
   end
+
   def create
     @comment = @post.comments.build(user: current_user, text: comment_params[:text])
     if @comment.save
@@ -15,13 +16,17 @@ class Api::CommentsController < ApplicationController
       render json: @comment.errors, status: :unprocessable_entity
     end
   end
+
   private
+
   def comment_params
     params.require(:comment).permit(:text)
   end
+
   def find_post
     @post = @user.posts.find(params[:post_id])
   end
+
   def find_user
     @user = User.find(params[:user_id])
   end
