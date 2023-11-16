@@ -33,9 +33,7 @@
             <%= l.submit "Like", class: "button-link" %>
         <% end %>
      <%= link_to "Add a comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), class: 'button-link' %>
-      <% if can? :destroy, @post %>
-         <%= link_to "Delete", user_post_path(user_id: @user.id, id: @post.id), method: :delete, data: { confirm: 'Are you sure?' }, class: 'button-link' %>
-        <% end %>
+     
     </div>
 </div>
 </div>
