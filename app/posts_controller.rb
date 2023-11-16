@@ -35,7 +35,7 @@ class PostsController < ApplicationController
 
   def authorize_delete
     @post = Post.find(params[:id])
-    @user = @post.author  # Set @user to the author of the post
+    @user = @post.author # Set @user to the author of the post
     authorize! :destroy, @post
   end
 end
