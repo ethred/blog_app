@@ -21,15 +21,18 @@
                 <span class="font-semibold"><%= comment.user.name %>:</span>
                 <span class="font-normal"><%= comment.text %></span>
             </div>
+               <% if can? :destroy, comment %>
+                <%= button_to 'Delete Comment', user_post_comment_path(@post.author, @post.id, id: comment.id), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'btn btn-danger btn-sm col-md-3 float-end' %>
+            <% end %>
         <% end %>
     </div>
-
+   
     <div class="like-comment-container flex justify-between mt-4">
-        <%= form_with model: @like, url: user_post_likes_path(post_id: @post.id) do |l| %>
-            <%= l.submit "Like", class: "button-link"%>
+        <%= form_with(model: @like, url: user_post_likes_path(post_id: @post.id)) do |l| %>
+            <%= l.submit "Like", class: "button-link" %>
         <% end %>
-
-        <%= link_to "Add a comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), class: 'button-link'%>
+     <%= link_to "Add a comment", new_user_post_comment_path(user_id: @post.author.id, post_id: @post.id), class: 'button-link' %>
     </div>
 </div>
 </div>
+
