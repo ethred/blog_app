@@ -121,6 +121,12 @@ Example command:
 - GitHub: [@ethred](https://github.com/ethred)
 - Twitter: [@redwanthr](https://twitter.com/@redwanthr)
 - LinkedIn: [Redwan Tahir](https://www.linkedin.com/in/redwan-tahir-78260733/)
+
+👤 WILSAN
+- GitHub: [@githubhandle](https://github.com/Wils-FOURR-speed)
+- Twitter: [@twitterhandle](https://twitter.com/WFourrspeed)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/nji-wilsan-ndenge-47b7a826a/)
+
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- FUTURE FEATURES -->
