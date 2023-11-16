@@ -38,6 +38,9 @@
             
           <%= link_to 'Add Comment', new_user_post_comment_path(@user, post), class: 'button-link' %>
           <%= button_to 'Like', user_post_likes_path(@user, post), method: :post, class: 'button-link' %>
+            <% if can? :destroy, post %>
+                <%= button_to 'Delete Post', user_post_path(@user, post), method: :delete, data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, class: 'button-link' %>
+            <% end %>
         </div>
 
         <!-- Post Comments -->
@@ -59,9 +62,5 @@
   <% else %>
     <p style="color:blue">There are currently no posts for this user in the system.</p>
   <% end %>
-    <!-- Use will_paginate with default styling -->
-  <div id="custom-pagination-container">
-  <%= will_paginate @posts, container: false %>
-</div>
 </div>
 </div>
