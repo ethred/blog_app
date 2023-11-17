@@ -1,7 +1,8 @@
+# app/controllers/api/v1/posts_controller.rb
 class Api::V1::PostsController < ApplicationController
   layout 'standard'
-
   load_and_authorize_resource
+
   rescue_from CanCan::AccessDenied do |_exception|
     redirect_to root_path, notice: 'Access Denied!'
   end
@@ -13,7 +14,8 @@ class Api::V1::PostsController < ApplicationController
   end
 
   def show
-    @comments = Comment.where(post: @post.id)
-    render json: @post.comments, status: :ok, only: %i[id author_id post_id text]
+    @post = Post.find(params[:id])
+    @comments = @post.comments
+    render json: @comments, status: :ok, only: %i[id author_id post_id text]
   end
 end

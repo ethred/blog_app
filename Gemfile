@@ -72,6 +72,10 @@ group :test do
   gem 'capybara'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
+
+  gem 'rspec_api_documentation'
+
+  gem 'rswag', '~> 2.4'
 end
 gem 'devise', '~> 4.8'
 gem 'rubocop', '>= 1.0', '< 2.0'
