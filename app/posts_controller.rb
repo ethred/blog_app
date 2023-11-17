@@ -1,14 +1,14 @@
 class PostsController < ApplicationController
-  load_and_authorize_resource
+  before_action :authorize_delete, only: :destroy
 
   def index
     @user = User.find_by_id(params[:user_id])
-    @posts = @user.posts.includes(:comments) if @user
+    @posts = @user.posts.includes(:comments, :likes).paginate(page: params[:page], per_page: 10)
   end
 
   def show
-    @user = User.find_by_id(params[:user_id])
-    @post = Post.find_by_id(params[:id])
+    @post = Post.find(params[:id])
+    @user = @post.author
   end
 
   def new
@@ -31,14 +31,11 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :text)
   end
 
-  def destroy
-    @post = Post.find_by_id(params[:id])
-    @user = User.find_by_id(params[:user_id])
-    if @post.destroy
-      @post.author.decrement!(:posts_counter)
-      redirect_to user_posts_path(@user), notice: 'Post was successfully deleted.'
-    else
-      redirect_to user_posts_path(@user), alert: 'Error deleting post.'
-    end
+  private
+
+  def authorize_delete
+    @post = Post.find(params[:id])
+    @user = @post.author # Set @user to the author of the post
+    authorize! :destroy, @post
   end
 end

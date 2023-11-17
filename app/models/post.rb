@@ -15,8 +15,8 @@ class Post < ApplicationRecord
 
   # Methods
   def update_user_posts_counter
-    # author.increment!(:posts_counter)
-    author.update(posts_counter: Post.where(author:).count)
+    author.increment!(:posts_counter)
+    # author.update(posts_counter: Post.where(author:).count)
   end
 
   def recent_comments
